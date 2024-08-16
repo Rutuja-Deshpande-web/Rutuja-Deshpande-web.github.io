@@ -22,10 +22,11 @@ html{
     font-size: 60%;
     overflow-x: hidden;
 }
-
-body{
-    background:  var(--bg-color);
-    color: var(--text-color);
+@media only screen {
+    body{
+        background:  var(--bg-color);
+        color: var(--text-color);
+    }
 }
 
 .header{
@@ -448,6 +449,8 @@ span{
     border: 3px solid rgba(238, 238, 238, 0.2) ;
     cursor: pointer;
     transition: 0.4s ease-in-out;
+    overflow: hidden;
+    flex-direction: column;
 }
 
 .service-box:hover{
@@ -466,16 +469,10 @@ span{
     justify-content: left;
     align-items: baseline;
     padding: 2rem 2rem;
-    overflow: auto;
+   
 }
 
 .service-info h4{
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 2;
-}
-
-.service-info h{
     font-size: 3rem;
     font-weight: 800;
     line-height: 2;
