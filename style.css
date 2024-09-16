@@ -22,10 +22,11 @@ html{
     font-size: 60%;
     overflow-x: hidden;
 }
-
-body{
-    background:  var(--bg-color);
-    color: var(--text-color);
+@media only screen {
+    body{
+        background:  var(--bg-color);
+        color: var(--text-color);
+    }
 }
 
 .header{
@@ -343,6 +344,7 @@ span{
     margin-bottom: 40px;
     width: 100%;
     position: relative;
+    
 
 }
 
@@ -391,7 +393,7 @@ span{
 }
 
 .timeline-content:hover{
-    transform: scale(1.05);
+    transform: scale(1.5);
     box-shadow: 0 0 25px var(--main-color);
 }
 
@@ -448,14 +450,16 @@ span{
     border: 3px solid rgba(238, 238, 238, 0.2) ;
     cursor: pointer;
     transition: 0.4s ease-in-out;
+    overflow: hidden;
+    flex-direction: column;
 }
 
 .service-box:hover{
     background: var(--bg-color);
     color: white;
     border: 5px solid var(--main-color);
-    transform: scale(1.03);
     box-shadow: 0 0 50px var(--main-color);
+    transform: scale(1.5);
 }
 
 .service-box .service-info{
@@ -466,16 +470,10 @@ span{
     justify-content: left;
     align-items: baseline;
     padding: 2rem 2rem;
-    overflow: auto;
+   
 }
 
 .service-info h4{
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 2;
-}
-
-.service-info h{
     font-size: 3rem;
     font-weight: 800;
     line-height: 2;
@@ -524,14 +522,13 @@ span{
     gap: 3rem;
 }
 
-.testimonials-item{
+.testimonials-item .flip-card-inner{
     min-height: 550px;
     max-width: 450px;
     background: rgba(0, 0, 0, 0.7);
     border: 3px solid rgba(238, 238, 238, 0.2) ;
     border-radius: 2rem;
     margin: 0 2rem;
-    padding: 30px 60px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -541,15 +538,34 @@ span{
     gap: 1.5rem;
     color: white;
     transition: 0.4s ease-in-out;
-
+    perspective: 1000px;
+    
 }
+.flip-card-inner{
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.flip-front, .flip-back {
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    
+  }
 
-.testimonials-item:hover{
-    border: 3px solid var(--main-color);
-    transform: translateY(-10px)scale(1.03);
+.testimonials-item:hover .flip-card-inner{
+   
+    transform: rotateY(180deg);
     box-shadow: 0 0 50px var(--main-color);
 }
 
+.flip-back{
+    transform: rotateY(180deg);
+    align-items: center;
+    position: absolute;
+
+}
 .testimonials-item h2{
     font-size: 2.8rem;
 }
